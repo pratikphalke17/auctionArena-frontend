@@ -7,7 +7,6 @@ import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
-    
         <Routes>
           <Route path="/" element={<div>hello panya</div>} /> 
           <Route path="/auctioneer" element={<AuctioneerPage />} />
@@ -15,7 +14,6 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
-     
   );
 }
 
