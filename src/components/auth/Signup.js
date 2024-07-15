@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 // import 'bootstrap/dist/css/bootstrap.min.css';
-import './Signup.css';
+// import './Signup.css';
 
 function Signup() {
   const [teamName, setTeamName] = useState('');
