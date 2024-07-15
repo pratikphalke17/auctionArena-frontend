@@ -5,9 +5,9 @@ import TeamAuction from '../components/team/TeamAuction';
 function TeamPage() {
   return (
     <div>
-      <h1>Team Dashboard</h1>
-      <TeamDashboard />
-      <TeamAuction />
+
+      <TeamDashboard/>
+
     </div>
   );
 }
