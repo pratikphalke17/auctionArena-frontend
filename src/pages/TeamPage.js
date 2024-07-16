@@ -4,7 +4,7 @@ import TeamAuction from '../components/team/TeamAuction';
 
 function TeamPage() {
   return (
-    <div>
+    <div class="mt-4 p-2">
 
       <TeamDashboard/>
 

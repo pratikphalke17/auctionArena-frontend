@@ -24,7 +24,9 @@ const Companies = () => {
   }, {});
 
   return (
-    <div className="container mt-2 mb-5">
+    <div>
+    <div className="mt-5 p-1">
+<div className="container mt-2 mb-5">
       <h1 className="my-4 text-center">Companies</h1>
       {Object.keys(groupedCompanies).map(domain => (
         <div className="domain-section mt-5" key={domain}>
@@ -32,18 +34,25 @@ const Companies = () => {
           {groupedCompanies[domain].map(company => (
             <div className="card company-card mt-2" key={company.Name}>
               <div className="card-body">
-                <h5 className="card-title">
-                  {company.Name}
-                </h5>
-                <p className={`card-text ${company.SolAt ? 'company-sold' : 'company-unsold'}`}>
-                  {company.SolAt ? `Sold at $${company.SolAt.toLocaleString()}` : 'Unsold'}
-                </p>
+                <h4 className="card-title">
+                  {company.Name} 
+                </h4>
+                <h5>Base Price : ${company.BasePrice.toLocaleString()}</h5>
+                <h6 className={`card-text ${company.SolAt ? 'company-sold' : 'company-unsold'}`}>
+                  {company.SolAt ? `Sold at $${company.SolAt.toLocaleString()} to ${company.TeamName}` : 'Unsold'}
+                </h6>
               </div>
             </div>
           ))}
         </div>
       ))}
     </div>
+
+    </div>
+
+    </div>
+    
+    
   );
 };
 
