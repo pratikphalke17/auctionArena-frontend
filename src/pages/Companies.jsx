@@ -1,7 +1,7 @@
 import React from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import './App.css';
-
+ 
 // companies array will be fetched from data base
 
 const companies = [

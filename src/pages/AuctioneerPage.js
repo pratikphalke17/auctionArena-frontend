@@ -7,7 +7,7 @@ function AuctioneerPage() {
     <div>
       <h1>Auctioneer Dashboard</h1>
       <AuctioneerDashboard />
-      <AuctioneerAuction />
+      {/* <AuctioneerAuction /> */}
     </div>
   );
 }
