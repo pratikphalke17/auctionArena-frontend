@@ -15,27 +15,27 @@ const Navbar = ({ isLoggedIn, userRole,handleLogout,setIsLoggedIn }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">Auction Arena</NavLink>
+        <NavLink className="navbar-brand" to="/" replace>Auction Arena</NavLink>
         
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav mx-auto">
             <li className="nav-item">
-              <NavLink className="nav-link" to="/about">
+              <NavLink className="nav-link" to="/about" replace>
                 About
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/contact">
+              <NavLink className="nav-link" to="/contact" replace>
                 Contact Us
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/rules">
+              <NavLink className="nav-link" to="/rules" replace>
                 Rules
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/prizes">
+              <NavLink className="nav-link" to="/prizes" replace>
                 Prizes
               </NavLink>
             </li>
@@ -47,10 +47,10 @@ const Navbar = ({ isLoggedIn, userRole,handleLogout,setIsLoggedIn }) => {
             {!isLoggedIn && (
               <>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/login">Login</NavLink>
+                  <NavLink className="nav-link" to="/login" replace>Login</NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/signup">Sign Up</NavLink>
+                  <NavLink className="nav-link" to="/signup" replace>Sign Up</NavLink>
                 </li>
               </>
             )}
@@ -59,7 +59,7 @@ const Navbar = ({ isLoggedIn, userRole,handleLogout,setIsLoggedIn }) => {
               {userRole === "admin" && (
                 <>
                   <li className="nav-item">
-                    <NavLink className="nav-link" to="/admin">
+                    <NavLink className="nav-link" to="/admin" replace>
                       Admin Dashboard
                     </NavLink>
                   </li>
@@ -68,14 +68,14 @@ const Navbar = ({ isLoggedIn, userRole,handleLogout,setIsLoggedIn }) => {
               {userRole === "team" && (
                 <>
                   <li className="nav-item">
-                    <NavLink className="nav-link" to="/user">
+                    <NavLink className="nav-link" to="/user" replace>
                       User Dashboard
                     </NavLink>
                   </li>
                 </>
               )}
               <li className="nav-item">
-                <NavLink className="nav-link" to="/companies">
+                <NavLink className="nav-link" to="/companies" replace>
                   All Companies
                 </NavLink>
               </li>

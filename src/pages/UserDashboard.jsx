@@ -8,8 +8,8 @@ function UserDashboard() {
       <h1>User Dashboard</h1>
       <p>Welcome, User!</p>
       <ul>
-        <li><Link to="/team">Team Page</Link></li>
-        <li><Link to="/companies">All Companies</Link></li>
+        <li><Link to="/team" replace>Team Page</Link></li>
+        <li><Link to="/companies" replace>All Companies</Link></li>
       </ul>
     </div>
   );

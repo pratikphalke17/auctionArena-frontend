@@ -9,8 +9,8 @@ function AdminDashboard() {
       <h1>Admin Dashboard</h1>
       <p>Welcome, Admin!</p>
       <ul>
-        <li><Link to="/auctioneer">Auctioneer Page</Link></li>
-        <li><Link to="/companies">All Companies</Link></li>
+        <li><Link to="/auctioneer" replace>Auctioneer Page</Link></li>
+        <li><Link to="/companies" replace>All Companies</Link></li>
       </ul>
       
     </div>
