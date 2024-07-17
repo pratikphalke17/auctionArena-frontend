@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import './Signup.css';
+import { useNavigate } from 'react-router-dom';
 
-function Signup() {
+const Signup = () => {
   const [teamName, setTeamName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,12 +17,15 @@ function Signup() {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/signup', {
-        teamName,
+      const response = await axios.post('http://localhost:3000/teams/team/register', {
+        name: teamName, // Ensure backend expects 'name' instead of 'teamName'
         password,
-        accountType: 'team',
+        confirmPassword, // Make sure backend handles confirmPassword correctly if needed
       });
-      // Handle success (e.g., redirect to login or team page)
+      console.log(response.data);
+       // Handle success, e.g., show success message or redirect
+       // Redirect to login page after successful signup
+       navigate("/login");
     } catch (error) {
       setError('Error creating account');
     }
@@ -67,6 +70,6 @@ function Signup() {
       </form>
     </div>
   );
-}
+};
 
 export default Signup;

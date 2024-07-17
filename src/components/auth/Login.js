@@ -1,23 +1,28 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import './Login.css';
+import { useNavigate } from 'react-router-dom';
 
-function Login() {
+const Login = ({ setIsLoggedIn,setUserRole }) => {
   const [teamName, setTeamName] = useState('');
   const [password, setPassword] = useState('');
   const [accountType, setAccountType] = useState('team'); // Default to team
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/login', {
-        teamName,
+      const response = await axios.post('http://localhost:3000/teams/team/login', {
+        name: teamName,
         password,
-        accountType,
+        role: accountType, // Ensure backend expects 'role' instead of 'accountType'
       });
-      // Handle success (e.g., redirect to dashboard)
+      localStorage.setItem('token', response.data.token); // Store token in localStorage
+      setIsLoggedIn(true); // Update parent component state
+      setUserRole(accountType); // Set the user role
+      // useNavigate();
+      navigate("/");
     } catch (error) {
       setError('Invalid login credentials');
     }
@@ -28,7 +33,7 @@ function Login() {
       <form onSubmit={handleSubmit} className="p-5 bg-white rounded shadow login-card" style={{ maxWidth: '400px', width: '100%' }}>
         <h2 className="text-center mb-4 text-primary">Login</h2>
         <div className="mb-3">
-          <label className="form-label">Team Name / Actioneer Name</label> 
+          <label className="form-label">Team Name / Auctioneer Name</label> 
           <input
             type="text"
             className="form-control"
@@ -55,7 +60,7 @@ function Login() {
             onChange={(e) => setAccountType(e.target.value)}
           >
             <option value="team">Team</option>
-            <option value="auctioneer">Auctioneer</option>
+            <option value="admin">Auctioneer</option>
           </select>
         </div>
         {error && <p className="text-danger">{error}</p>}
@@ -63,6 +68,7 @@ function Login() {
       </form>
     </div>
   );
-}
+};
 
 export default Login;
+

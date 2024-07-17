@@ -1,82 +1,8 @@
-// import React from 'react';
-
-// const teams = [
-//   {
-//     "TeamName": "Team A",
-//     "CompaniesBought": ["Company D", "Company G"],
-//     "RemainingBudget": 150000
-//   },
-//   {
-//     "TeamName": "Team B",
-//     "CompaniesBought": ["Company A", "Company H"],
-//     "RemainingBudget": 200000
-//   },
-//   {
-//     "TeamName": "Team C",
-//     "CompaniesBought": ["Company B", "Company I"],
-//     "RemainingBudget": 180000
-//   },
-//   {
-//     "TeamName": "Team D",
-//     "CompaniesBought": ["Company C", "Company J"],
-//     "RemainingBudget": 250000
-//   },
-//   {
-//     "TeamName": "Team E",
-//     "CompaniesBought": ["Company E"],
-//     "RemainingBudget": 350000
-//   },
-//   {
-//     "TeamName": "Team F",
-//     "CompaniesBought": ["Company F"],
-//     "RemainingBudget": 300000
-//   }
-// ];
-
-// const TeamDashboard = () => {
-
-//   return (
-//     <>
-//       <div className="container mt-4">
-//         <h2 className="mb-4 text-center">User Dashboard</h2>
-//         <div className="row justify-content-center">
-//           <div className="col-md-8">
-//             <div className="card">
-//               <div className="card-header bg-success text-white">Teams Data</div>
-//               <div className="card-body">
-//                 <table className="table table-striped">
-//                   <thead>
-//                     <tr>
-//                       <th>Team Name</th>
-//                       <th>Companies Bought</th>
-//                       <th>Remaining Budget</th>
-//                     </tr>
-//                   </thead>
-//                   <tbody>
-//                     {teams.map((team, index) => (
-//                       <tr key={index}>
-//                         <td>{team.TeamName}</td>
-//                         <td>{team.CompaniesBought.join(', ')}</td>
-//                         <td>${team.RemainingBudget.toLocaleString()}</td>
-//                       </tr>
-//                     ))}
-//                   </tbody>
-//                 </table>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default TeamDashboard;
 import React from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
-// import '../team/TeamDashbord.css';
+// import '../team/AllTeams.css';
 
-function TeamDashboard() {
+function AllTeams() {
   
   const userTeam = {
     name: 'Team Name',
@@ -146,4 +72,4 @@ function TeamDashboard() {
   );
 }
 
-export default TeamDashboard;
+export default AllTeams;
