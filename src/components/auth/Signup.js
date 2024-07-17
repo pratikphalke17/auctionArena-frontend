@@ -25,7 +25,7 @@ const Signup = () => {
       console.log(response.data);
        // Handle success, e.g., show success message or redirect
        // Redirect to login page after successful signup
-       navigate("/login");
+       navigate("/login, { replace: true }");
     } catch (error) {
       setError('Error creating account');
     }
@@ -76,7 +76,7 @@ const Signup = () => {
         <button
           type="button"
           className="btn btn-secondary w-100"
-          onClick={() => navigate("/login")}
+          onClick={() => navigate("/login, { replace: true }")}
         >
           Login
         </button>

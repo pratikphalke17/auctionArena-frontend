@@ -22,7 +22,7 @@ const Login = ({ setIsLoggedIn,setUserRole }) => {
       setIsLoggedIn(true); // Update parent component state
       setUserRole(accountType); // Set the user role
       // useNavigate();
-      navigate("/");
+      navigate("/", { replace: true });
     } catch (error) {
       setError('Invalid login credentials');
     }
@@ -73,7 +73,7 @@ const Login = ({ setIsLoggedIn,setUserRole }) => {
         <button
           type="button"
           className="btn btn-secondary w-100"
-          onClick={() => navigate("/signup")}
+          onClick={() => navigate("/signup", { replace: true })}
         >
           Signup
         </button>

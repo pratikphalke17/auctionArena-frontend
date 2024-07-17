@@ -1,9 +1,6 @@
 // src/pages/HomePage.js
 import React from "react";
-import AboutPage from "./AboutPage";
-import ContactPage from "./ContactPage";
-import RulesPage from "./RulesPage";
-import PrizesPage from "./PrizesPage";
+
 
 const HomePage = () => {
   return (

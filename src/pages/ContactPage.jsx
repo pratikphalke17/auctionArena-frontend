@@ -4,7 +4,7 @@ import React from "react";
 const ContactPage = () => {
   return (
     <div id="contact">
-      <h1></h1>
+      <h1>Contact Us</h1>
       <p>
         For any inquiries, please reach out to us at contact@auctionarena.com or
         call us at (123) 456-7890. Our team is available to assist you with any

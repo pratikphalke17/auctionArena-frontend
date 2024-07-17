@@ -1,9 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useEffect } from 'react';
 
-const Navbar = ({ isLoggedIn, userRole,handleLogout }) => {
+const Navbar = ({ isLoggedIn, userRole,handleLogout,setIsLoggedIn }) => {
   console.log(isLoggedIn);
   console.log(userRole);
+
+  useEffect(() => {
+    if(localStorage.getItem('token')){
+      setIsLoggedIn(true);
+    }
+  },[]);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
