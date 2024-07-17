@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({ setIsLoggedIn,setUserRole }) => {
+const Login = ({ setIsLoggedIn,setUserRole}) => {
   const [teamName, setTeamName] = useState('');
   const [password, setPassword] = useState('');
   const [accountType, setAccountType] = useState('team'); // Default to team
@@ -70,13 +70,8 @@ const Login = ({ setIsLoggedIn,setUserRole }) => {
         <p className="text-center mt-3">
           Not registered? Click on the signup button below.
         </p>
-        <button
-          type="button"
-          className="btn btn-secondary w-100"
-          onClick={() => navigate("/signup", { replace: true })}
-        >
-          Signup
-        </button>
+        
+        <button type="button" className="btn btn-secondary w-100" onClick={() => navigate("/signup",{ replace: true })}>Signup</button>
 
       </form>
     </div>

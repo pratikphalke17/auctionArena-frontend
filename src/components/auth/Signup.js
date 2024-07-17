@@ -73,14 +73,8 @@ const Signup = () => {
         <p className="text-center mt-3">
           Already registered? Click on the login button below.
         </p>
-        <button
-          type="button"
-          className="btn btn-secondary w-100"
-          onClick={() => navigate("/login, { replace: true }")}
-        >
-          Login
-        </button>
-
+        
+        <button type="button" className="btn btn-secondary w-100" onClick={() => navigate("/login",{ replace: true })}>Login</button>
       </form>
     </div>
   );
