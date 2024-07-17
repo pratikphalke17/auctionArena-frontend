@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import AdminDashboard from "./pages/AdminDashboard";
 import UserDashboard from "./pages/UserDashboard";
@@ -9,12 +9,23 @@ import Login from './components/auth/Login';
 import CompanyCard from "./components/auctioneer/CompanyCard";
 import AllTeams from "./components/team/AllTeams";
 import { useNavigate } from "react-router-dom";
+import HomePage from './pages/HomePage';
+import ContactPage from './pages/ContactPage';
+import PrizesPage from './pages/PrizesPage';
+import RulesPage from './pages/RulesPage';
+import AboutPage from './pages/AboutPage';
+// import { useLocation } from "react-router-dom";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userRole, setUserRole] = useState("");
   const navigate = useNavigate();
-
+  // const location = useLocation();
+  useEffect(() => {
+    if(localStorage.getItem('token')){
+      setIsLoggedIn(true);
+    }
+  });
   const handleLogout = () => {
     localStorage.removeItem("token"); // Clear token from localStorage
     setIsLoggedIn(false); // Update isLoggedIn state
@@ -27,14 +38,22 @@ function App() {
     <>
       <Navbar isLoggedIn={isLoggedIn} userRole={userRole} handleLogout={handleLogout} />
       <Routes>
+
+      <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/prizes" element={<PrizesPage />} />
+        <Route path="/rules" element={<RulesPage />} />
+
+
         <Route
           path="/login"
           element={<Login setIsLoggedIn={setIsLoggedIn} setUserRole={setUserRole} />}
         />
         <Route
           path="/"
-          element={<h1>Home Page</h1>}
+          element={<HomePage/>}
         />
+
         <Route path="/signup" element={<Signup />} />
         {isLoggedIn && (
           <>

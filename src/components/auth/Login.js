@@ -65,6 +65,19 @@ const Login = ({ setIsLoggedIn,setUserRole }) => {
         </div>
         {error && <p className="text-danger">{error}</p>}
         <button type="submit" className="btn btn-primary w-100 login-button">Login</button>
+
+        
+        <p className="text-center mt-3">
+          Not registered? Click on the signup button below.
+        </p>
+        <button
+          type="button"
+          className="btn btn-secondary w-100"
+          onClick={() => navigate("/signup")}
+        >
+          Signup
+        </button>
+
       </form>
     </div>
   );

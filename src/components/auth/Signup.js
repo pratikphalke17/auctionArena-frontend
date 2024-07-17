@@ -67,6 +67,20 @@ const Signup = () => {
         </div>
         {error && <p className="text-danger">{error}</p>}
         <button type="submit" className="btn btn-primary w-100 signup-button">Sign Up</button>
+
+
+        
+        <p className="text-center mt-3">
+          Already registered? Click on the login button below.
+        </p>
+        <button
+          type="button"
+          className="btn btn-secondary w-100"
+          onClick={() => navigate("/login")}
+        >
+          Login
+        </button>
+
       </form>
     </div>
   );
