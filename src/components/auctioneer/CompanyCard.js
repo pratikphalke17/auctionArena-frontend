@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './CompanyCard.css'; // Import the CSS file for custom styles
+// import './CompanyCard.css'; // Import the CSS file for custom styles
 
 const CompanyCard = () => {
   const [companies, setCompanies] = useState([]);

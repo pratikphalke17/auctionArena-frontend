@@ -1,11 +1,11 @@
 /* Container styling */
-.custom-container {
+/* .custom-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Section styling */
+
 .section-header {
   text-align: center;
   margin: 2rem 0;
@@ -16,7 +16,7 @@
   color: #333;
 }
 
-/* Domain section styling */
+
 .domain-section {
   margin-top: 2rem;
   padding: 1rem;
@@ -29,7 +29,7 @@
   margin-bottom: 1rem;
 }
 
-/* Card styling */
+
 .company-card {
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -58,7 +58,7 @@
   color: #333;
 }
 
-/* Sold and unsold company styling */
+
 .company-sold {
   color: #28a745;
   font-weight: bold;
@@ -69,7 +69,7 @@
   font-weight: bold;
 }
 
-/* Responsive design */
+
 @media (max-width: 768px) {
   .container {
     padding: 15px;
@@ -90,4 +90,4 @@
   .card-text {
     font-size: 0.875rem;
   }
-}
+} */

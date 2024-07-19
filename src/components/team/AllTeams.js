@@ -1,27 +1,57 @@
-import React from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import '../team/AllTeams.css';
 
-function AllTeams() {
-  
-  const userTeam = {
-    name: 'Team Name',
-    remainingBudget: 1000,
-    companiesBought: ['Company A', 'Company B']
-  };
 
-  const otherTeams = [
-    {
-      name: 'Team 1',
-      companiesBought: ['Company X', 'Company Y'],
-      remainingBudget: 800
-    },
-    {
-      name: 'Team 2',
-      companiesBought: ['Company Z'],
-      remainingBudget: 950
-    }
-  ];
+// export default AllTeams;
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import {jwtDecode} from 'jwt-decode';
+// import './AllTeams.css';
+
+const AllTeams = () => {
+  const [userTeam, setUserTeam] = useState(null);
+  const [otherTeams, setOtherTeams] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTeamData = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          // Handle case where token is not available
+          return;
+        }
+
+        const decodedToken = jwtDecode(token);
+        const userId = decodedToken.id; // Adjust this based on your token structure
+        console.log(userId);
+
+        // Fetch user team data
+        const userTeamResponse = await axios.get(`http://localhost:3000/teams/team/getTeamData/${userId}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        
+        setUserTeam(userTeamResponse.data.team);
+        console.log(userTeamResponse.data.team);
+        
+        // Fetch all teams data
+        const allTeamsResponse = await axios.get('http://localhost:3000/teams/team/getAllTeamsData', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        
+        setOtherTeams(allTeamsResponse.data.teams);
+        
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching team data:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchTeamData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="container-fluid mt-0 p-5">
@@ -31,14 +61,20 @@ function AllTeams() {
           <div className="card h-100">
             <div className="card-header bg-primary text-white text-center">Your Team</div>
             <div className="card-body">
-              <h5 className="card-title text-center">{userTeam.name}</h5>
-              <p className="card-text text-center"><strong>Remaining Budget:</strong> ${userTeam.remainingBudget}</p>
-              <h6 className="text-center">Companies Bought:</h6>
-              <ul className="list-group">
-                {userTeam.companiesBought.map((company, index) => (
-                  <li key={index} className="list-group-item">{company}</li>
-                ))}
-              </ul>
+              {userTeam ? (
+                <>
+                  <h5 className="card-title text-center">{userTeam.name}</h5>
+                  <p className="card-text text-center"><strong>Remaining Budget:</strong> {userTeam.budget}</p>
+                  <h6 className="text-center">Companies Bought:</h6>
+                  <ul className="list-group">
+                    {userTeam.purchasedCompanies.map((company, index) => (
+                      <li key={index} className="list-group-item">{company.name}</li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <div className="text-center">No team data available</div>
+              )}
             </div>
           </div>
         </div>
@@ -58,8 +94,8 @@ function AllTeams() {
                   {otherTeams.map((team, index) => (
                     <tr key={index}>
                       <td>{team.name}</td>
-                      <td>{team.companiesBought.join(', ')}</td>
-                      <td>${team.remainingBudget}</td>
+                      <td>{team.purchasedCompanies.map((company) => company.name).join(', ')}</td>
+                      <td>{team.budget}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -70,6 +106,6 @@ function AllTeams() {
       </div>
     </div>
   );
-}
+};
 
 export default AllTeams;
