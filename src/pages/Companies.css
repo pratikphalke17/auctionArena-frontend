@@ -1,0 +1,93 @@
+/* Container styling */
+.custom-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Section styling */
+.section-header {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.section-header h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+/* Domain section styling */
+.domain-section {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-top: 2px solid #007bff;
+}
+
+.domain-section h2 {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+/* Card styling */
+.company-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin: 0.5rem 0;
+  overflow: hidden;
+}
+
+.company-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Sold and unsold company styling */
+.company-sold {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.company-unsold {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  .company-card {
+    margin: 10px 0;
+  }
+
+  .card-body {
+    padding: 0.75rem;
+  }
+
+  .card-title {
+    font-size: 1.125rem;
+  }
+
+  .card-text {
+    font-size: 0.875rem;
+  }
+}

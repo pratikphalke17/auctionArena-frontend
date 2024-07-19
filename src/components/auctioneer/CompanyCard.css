@@ -1,5 +1,7 @@
 /* CompanyCard.css */
-
+* {
+  user-select: none;
+}
 .container {
     padding: 20px;
   }

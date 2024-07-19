@@ -12,9 +12,7 @@ code {
     monospace;
 }
 
-* {
-  user-select: none;
-}
+
 
 /* Hide scrollbar for IE, Edge and Firefox */
 /* Note: This will hide all scrollbars, including the scrollbars for input fields and textareas */
