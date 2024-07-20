@@ -1,6 +1,6 @@
 import React from "react";
 // import 'bootstrap/dist/css/bootstrap.min.css';
-
+import '../pages/RulesPage.css'
 const RulesPage = () => {
   return (
     <div id="rules" className="container my-5">
