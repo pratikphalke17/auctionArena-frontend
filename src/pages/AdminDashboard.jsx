@@ -12,8 +12,8 @@ function AdminDashboard() {
         <li><Link to="/auctioneer" replace>Auctioneer Page</Link></li>
         <li><Link to="/companies" replace>All Companies</Link></li>
         <li><Link to="/createCompany" replace>Create Company</Link></li>
-        <li><Link to="/auctioneer" replace>Update Company</Link></li>
-        <li><Link to="/auctioneer" replace>Create Domain</Link></li>
+        <li><Link to="/updateCompany" replace>Update Company</Link></li>
+        <li><Link to="/createDomain" replace>Create Domain</Link></li>
       </ul>
       
     </div>
