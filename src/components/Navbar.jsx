@@ -1,90 +1,94 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useEffect } from 'react';
 
-const Navbar = ({ isLoggedIn, userRole,handleLogout,setIsLoggedIn }) => {
-  console.log(isLoggedIn);
-  console.log(userRole);
-
+const Navbar = ({ isLoggedIn, userRole, handleLogout, setIsLoggedIn }) => {
   useEffect(() => {
-    if(localStorage.getItem('token')){
+    if (localStorage.getItem('token')) {
       setIsLoggedIn(true);
     }
-  },[]);
+  }, [setIsLoggedIn]);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/" replace>Auction Arena</NavLink>
-        
+        <NavLink className="navbar-brand" to="/">
+          Auction Arena
+        </NavLink>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav mx-auto">
+          <ul className="navbar-nav mx-5">
             <li className="nav-item">
-              <NavLink className="nav-link" to="/about" replace>
+              <NavLink className="nav-link" to="/about">
                 About
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/contact" replace>
+              <NavLink className="nav-link" to="/contact">
                 Contact Us
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/rules" replace>
-                Rules
+              <NavLink className="nav-link" to="/rules">
+                Rulebook
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/prizes" replace>
+              <NavLink className="nav-link" to="/prizes">
                 Prizes
               </NavLink>
             </li>
           </ul>
-
-        </div>
-        <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-            {!isLoggedIn && (
+            {!isLoggedIn ? (
               <>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/login" replace>Login</NavLink>
+                  <NavLink className="nav-link" to="/login">
+                    Login
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/signup" replace>Sign Up</NavLink>
+                  <NavLink className="nav-link" to="/signup">
+                    Sign Up
+                  </NavLink>
                 </li>
               </>
-            )}
-            {isLoggedIn && (
+            ) : (
               <>
-              {userRole === "admin" && (
-                <>
+                {userRole === 'admin' && (
                   <li className="nav-item">
-                    <NavLink className="nav-link" to="/admin" replace>
+                    <NavLink className="nav-link" to="/admin">
                       Admin Dashboard
                     </NavLink>
                   </li>
-                </>
-              )}
-              {userRole === "team" && (
-                <>
+                )}
+                {userRole === 'team' && (
                   <li className="nav-item">
-                    <NavLink className="nav-link" to="/user" replace>
+                    <NavLink className="nav-link" to="/user">
                       User Dashboard
                     </NavLink>
                   </li>
-                </>
-              )}
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/companies" replace>
-                  All Companies
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <button className="btn nav-link" onClick={handleLogout}>
-                  Logout
-                </button>
-              </li>
-            </>
+                )}
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/companies">
+                    All Companies
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <button className="btn btn-outline-light" onClick={handleLogout}>
+                    Logout
+                  </button>
+                </li>
+              </>
             )}
           </ul>
         </div>
