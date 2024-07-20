@@ -5,10 +5,34 @@ const GameOverview = () => {
   return (
     <>
       {/* Hero Section */}
-      <header className="hero-section" style={{ backgroundSize: 'cover', color: '#000000', padding: '100px 0', textAlign: 'center' }}>
+      <header
+        className="hero-section"
+        style={{
+          backgroundSize: 'cover',
+          color: '#000000',
+          padding: '25px 0',
+          textAlign: 'center',
+          position: 'relative', // Ensure positioning for the image
+        }}
+      >
         <div className="container">
-        <h1 className="text-center mb-4 display-4 text-dark">Challenge Yourself!</h1>
-          <p style={{ fontSize: '1.25rem' }}>
+          {/* Image at the top center */}
+          <img
+            src="https://credenz.in/assets/bplan-gw_hmIkn.png"
+            alt="Game Overview"
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+              marginBottom: '20px',
+              backgroundColor:'black',
+              borderRadius:'5px'
+               // Space between image and text
+            }}
+          />
+          <h1 className="text-center mb-4 display-4 text-dark">Challenge Yourself {' '}<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16">
+  <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41z"/>
+</svg></h1>
+          <p style={{ fontSize: '1.25rem' }} >
             Put your logical, aptitude, and business knowledge to the test. Showcase your communication skills and strong decision-making abilities in this thrilling multi-round game.
           </p>
         </div>
