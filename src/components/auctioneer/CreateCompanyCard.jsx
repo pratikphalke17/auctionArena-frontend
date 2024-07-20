@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const CreateCompanyForm = () => {
     const [formData, setFormData] = useState({
@@ -9,7 +10,29 @@ const CreateCompanyForm = () => {
         rating: '',
         marketCapital: ''
     });
+    const [domains, setDomains] = useState([]);
     const [showModal, setShowModal] = useState(false);
+
+    useEffect(() => {
+        // Fetch the domains from the backend when the component mounts
+        const fetchDomains = async () => {
+            try {
+                const token = localStorage.getItem('token'); // Get token from localStorage
+                const config = {
+                  headers: {
+                    Authorization: `Bearer ${token}`, // Attach token to headers
+                  },
+                };
+                const response = await axios.get('http://localhost:3000/domain/getAllDomains',config);
+                setDomains(response.data);
+                console.log(response.data);
+            } catch (error) {
+                console.error('Error fetching domains:', error);
+            }
+        };
+       
+        fetchDomains();
+    }, []);
 
     const handleChange = (e) => {
         setFormData({
@@ -23,9 +46,28 @@ const CreateCompanyForm = () => {
         setShowModal(true);
     };
 
-    const handleConfirm = () => {
-        console.log('New Company:', formData);
-        // Here you can add your code to send formData to your server
+    const handleConfirm = async () => {
+        try {
+            const token = localStorage.getItem('token'); // Get token from localStorage
+                const config = {
+                  headers: {
+                    Authorization: `Bearer ${token}`, // Attach token to headers
+                  },
+                };
+            const response = await axios.post('http://localhost:3000/company/createCompany', formData,config);
+            console.log('New Company:', response.data);
+            // Reset the form after successful submission
+            setFormData({
+                name: '',
+                logo: '',
+                basePrice: '',
+                domain: '',
+                rating: '',
+                marketCapital: ''
+            });
+        } catch (error) {
+            console.error('Error creating company:', error);
+        }
         setShowModal(false);
     };
 
@@ -84,10 +126,9 @@ const CreateCompanyForm = () => {
                             required
                         >
                             <option value="">Select a domain</option>
-                            <option value="tech">Tech</option>
-                            <option value="finance">Finance</option>
-                            <option value="healthcare">Healthcare</option>
-                            <option value="education">Education</option>
+                            {domains.map((domain) => (
+                                <option key={domain._id} value={domain._id}>{domain.name}</option>
+                            ))}
                         </select>
                     </div>
 
