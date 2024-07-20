@@ -15,6 +15,9 @@ import PrizesPage from "./pages/PrizesPage";
 import RulesPage from "./pages/RulesPage";
 import AboutPage from "./pages/AboutPage";
 import { jwtDecode } from "jwt-decode";
+import CreateCompanyForm from "./components/auctioneer/CreateCompanyCard";
+import UpdateCompanyForm from "./components/auctioneer/UpdateCompanyForm";
+import CreateDomainForm from "./components/auctioneer/CreateDomainForm";
 // import { useLocation } from "react-router-dom";
 
 function App() {
@@ -79,7 +82,18 @@ function App() {
             {userRole === "team" && (
               <Route path="/user" element={<UserDashboard />} />
             )}
-            <Route path="/auctioneer" element={<CompanyCard />} />
+            {userRole === "admin" && (
+              <Route path="/auctioneer" element={<CompanyCard />} />
+            )}
+            {userRole === "admin" && (
+              <Route path="/createCompany" element={<CreateCompanyForm />} />
+            )}
+            {userRole === "admin" && (
+              <Route path="/updateCompany" element={<UpdateCompanyForm/>} />
+            )}
+            {userRole === "admin" && (
+              <Route path="/createDomain" element={<CreateDomainForm />} />
+            )}
             <Route path="/team" element={<AllTeams />} />
           </>
         )}
