@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const CreateDomainForm = () => {
     const [formData, setFormData] = useState({
@@ -20,26 +21,23 @@ const CreateDomainForm = () => {
 
     const handleConfirm = async () => {
         try {
-            const response = await fetch('/api/domains', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
+            const token = localStorage.getItem('token'); // Get token from localStorage
+                const config = {
+                  headers: {
+                    Authorization: `Bearer ${token}`, // Attach token to headers
+                  },
+                };
+            const response = await axios.post('http://localhost:3000/domain/createDomain', formData,config);
+            console.log('New Domain:', response.data);
+            // Reset the form after successful submission
+            setFormData({
+                name: '',
+               
             });
-            if (response.ok) {
-                const data = await response.json();
-                console.log('Domain created successfully:', data);
-                // Clear form
-                setFormData({ name: '' });
-            } else {
-                console.error('Error creating domain');
-            }
         } catch (error) {
-            console.error('Error creating domain:', error);
-        } finally {
-            setShowModal(false);
+            console.error('Error creating company:', error);
         }
+        setShowModal(false);
     };
 
     return (
