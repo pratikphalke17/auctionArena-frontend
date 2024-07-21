@@ -30,7 +30,7 @@ const GameOverview = () => {
             }}
           /> */}
 
-          <div className="container d-flex justify-content-center">
+          <div className="container d-flex justify-content-center mt-5">
           <dotlottie-player 
             src="https://lottie.host/3613bc40-8529-4118-8e89-399e9edfaf9b/Lrl7tBWfvE.json" 
             background="transparent" 
