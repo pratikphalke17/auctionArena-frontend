@@ -9,7 +9,9 @@ import CreateDomain from "../components/auctioneer/CreateDomainForm"; // Replace
 function AdminDashboard() {
   return (
     <div className="container py-5">
+   
       <div className="row text-center mb-4">
+    
         <div className="col">
           <h1 className="display-4 text-dark">
             Admin Portal{" "}
@@ -98,3 +100,7 @@ function AdminDashboard() {
 }
 
 export default AdminDashboard;
+
+
+
+

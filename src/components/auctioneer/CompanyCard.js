@@ -87,6 +87,7 @@ const CompanyCard = () => {
         )
       );
       alert(response.data.message); // Show success message
+     
     } catch (error) {
       console.error('Error selling company:', error);
       // Handle error state or display error message

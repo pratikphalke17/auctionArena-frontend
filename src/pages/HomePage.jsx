@@ -16,8 +16,8 @@ const GameOverview = () => {
         }}
       >
         <div className="container">
-          {/* Image at the top center */}
-          <img
+          
+          {/* <img
             src="https://credenz.in/assets/bplan-gw_hmIkn.png"
             alt="Game Overview"
             style={{
@@ -26,9 +26,24 @@ const GameOverview = () => {
               marginBottom: '20px',
               backgroundColor:'black',
               borderRadius:'5px'
-               // Space between image and text
+               
             }}
-          />
+          /> */}
+
+          <div className="container d-flex justify-content-center">
+          <dotlottie-player 
+            src="https://lottie.host/3613bc40-8529-4118-8e89-399e9edfaf9b/Lrl7tBWfvE.json" 
+            background="transparent" 
+            speed="1" 
+            style={{  maxWidth: '40%',
+              marginBottom: '20px',
+              borderRadius:'5px' ,
+              }} 
+            loop 
+            autoplay 
+        />
+          </div>
+        
           <h1 className="text-center mb-4 display-4 text-dark">Challenge Yourself {' '}<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16">
   <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41z"/>
 </svg></h1>
