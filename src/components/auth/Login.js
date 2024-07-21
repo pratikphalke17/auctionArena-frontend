@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = ({ setIsLoggedIn, setUserRole }) => {
   const [teamName, setTeamName] = useState('');
@@ -20,6 +22,8 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
       localStorage.setItem('token', response.data.token); // Store token in localStorage
       setIsLoggedIn(true); // Update parent component state
       setUserRole(accountType); // Set the user role
+      toast.success('Logged in successfully'); // Show success toast message
+      console.log('Toast should be shown now'); // Debugging line
       navigate("/", { replace: true });
     } catch (error) {
       setError('Invalid login credentials');
@@ -68,6 +72,10 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
         </p>
         <button type="button" className="btn btn-secondary w-100" onClick={() => navigate("/signup", { replace: true })}>Signup</button>
       </form>
+      <ToastContainer
+        position="top-center"
+        style={{ marginTop: '80px' }} // Adjust the margin as needed
+      />
     </div>
   );
 };

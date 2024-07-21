@@ -56,9 +56,9 @@ const Companies = () => {
 
   return (
     <div className="container my-4">
-      <h1 className="text-center">Companies</h1>
+      <h1 className="text-center mb-4">Companies</h1>
       {Object.keys(groupedCompanies).map(domain => (
-        <div className="card my-4 border-dark" key={domain}>
+        <div className="card mb-5 border-dark shadow" key={domain}>
           <div className="card-header bg-dark text-white text-center">
              <h2 className="card-title">{domain}</h2>          
           </div>
@@ -69,7 +69,7 @@ const Companies = () => {
                 <div className="row justify-content-center">
                   {groupedCompanies[domain].sold.map(company => (
                     <div className="col-12 col-md-6 mb-4" key={company.Name}>
-                      <div className="card shadow-lg border-dark h-100">
+                      <div className="card  border-dark h-100">
                         <div className="card-header bg-success text-white text-center">
                           <h4 className="card-title">{company.Name}</h4>
                         </div>
@@ -97,7 +97,7 @@ const Companies = () => {
                 <div className="row justify-content-center">
                   {groupedCompanies[domain].unsold.map(company => (
                     <div className="col-12 col-md-6 mb-4" key={company.Name}>
-                    <div className="card shadow-lg border-dark h-100">
+                    <div className="card  border-dark h-100">
                       <div className="card-header bg-primary text-white text-center">
                         <h4 className="card-title">{company.Name}</h4>
                       </div>

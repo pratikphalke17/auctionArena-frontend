@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import './CompanyCard.css'; // Import the CSS file for custom styles
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CompanyCard = () => {
   const [companies, setCompanies] = useState([]);
@@ -86,11 +87,11 @@ const CompanyCard = () => {
           company._id === currentCompany._id ? { ...company, sold: true } : company
         )
       );
-      alert(response.data.message); // Show success message
+      toast.success(response.data.message); // Show success message
      
     } catch (error) {
       console.error('Error selling company:', error);
-      // Handle error state or display error message
+      toast.error('Failed to sell the company'); // Show error message
     }
   };
 
@@ -100,14 +101,16 @@ const CompanyCard = () => {
 
   return (
     <div className="container vh-100 d-flex justify-content-center align-items-center">
-      <div className="card text-center company-card" style={{ width: '500px' }}>
+      <div className="card text-center company-card shadow" style={{ width: '500px' }}>
         <div className="card-header">
           <img src={currentCompany.logo} alt="Company Logo" className="img-fluid" style={{ width: '280px', height: '200px' }} />
         </div>
         <div className="card-body">
           <h5 className="card-title">{currentCompany.name}</h5>
+          <hr />
           <div className="d-flex justify-content-between">
             <p className="card-text"><strong>Domain:</strong> {currentCompany.domain.name}</p>
+            <p className="card-text"><strong>Rating:</strong> {currentCompany.rating}</p>
             <p className="card-text"><strong>Base Price:</strong> {currentCompany.basePrice}</p>
           </div>
           <div className="dropdown mt-3">
@@ -130,7 +133,7 @@ const CompanyCard = () => {
           </div>
           <div className="d-grid gap-2 mt-3">
             <button
-              className="btn btn-primary btn-lg"
+              className="btn btn-dark btn-lg"
               type="button"
               disabled={currentCompany.sold}
               onClick={handleSellCompany}
@@ -139,17 +142,17 @@ const CompanyCard = () => {
             </button>
           </div>
         </div>
-        <div className="card-footer d-flex justify-content-between">
-          <button className="btn btn-secondary" onClick={handlePrevious}>Previous</button>
-          <button className="btn btn-secondary" onClick={handleNext}>Next</button>
+        <div className="card-footer d-flex justify-content-between border-top border-light">
+          <button className="btn btn-secondary w-50 mx-1" onClick={handlePrevious}>Previous</button>
+          <button className="btn btn-secondary w-50 mx-1" onClick={handleNext}>Next</button>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        style={{ marginTop: '80px' }} // Adjust the margin as needed
+      />
     </div>
   );
 };
 
 export default CompanyCard;
-
-
-
-

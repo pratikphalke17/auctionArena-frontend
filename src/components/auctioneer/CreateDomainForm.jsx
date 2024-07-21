@@ -44,7 +44,8 @@ const CreateDomainForm = () => {
         <div className="container-fluid d-flex justify-content-center align-items-center" style={{ height: '100vh', overflow: 'hidden' }}>
             <div className="col-md-6" style={{ position: 'relative', zIndex: 1 }}>
                 <div className="p-4 border border-3 rounded">
-                    <h2 className="text-center mb-4">Create Domain</h2>
+                    <h2 className="text-center mb-4 text-dark">Create Domain</h2>
+                    <hr />
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3">
                             <label htmlFor="name" className="form-label">Domain Name</label>
@@ -59,8 +60,8 @@ const CreateDomainForm = () => {
                             />
                         </div>
                         <div className="text-center">
-                            <button type="submit" className="btn btn-primary">
-                                Create Domain
+                            <button type="submit" className="btn btn-dark">
+                                Create 
                             </button>
                         </div>
                     </form>
