@@ -9,7 +9,7 @@ const Navbar = ({ isLoggedIn, userRole, handleLogout, setIsLoggedIn }) => {
   }, [setIsLoggedIn]);
 
   return (
-    <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <nav fixed="top" className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
           Auction Arena
