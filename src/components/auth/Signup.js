@@ -20,7 +20,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/teams/team/register",
+        "https://auctionarena.onrender.com/teams/team/register",
         {
           name: teamName, // Ensure backend expects 'name' instead of 'teamName'
           password,

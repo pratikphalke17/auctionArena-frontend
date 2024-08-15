@@ -24,7 +24,7 @@ const CreateCompanyForm = () => {
           },
         };
         const response = await axios.get(
-          "http://localhost:3000/domain/getAllDomains",
+          "https://auctionarena.onrender.com/domain/getAllDomains",
           config
         );
         setDomains(response.data);
@@ -58,7 +58,7 @@ const CreateCompanyForm = () => {
         },
       };
       const response = await axios.post(
-        "http://localhost:3000/company/createCompany",
+        "https://auctionarena.onrender.com/company/createCompany",
         formData,
         config
       );
@@ -81,8 +81,10 @@ const CreateCompanyForm = () => {
   return (
     <div className="container mt-5 d-flex justify-content-center ">
       <div className="col-md-8 p-4 border border-3 rounded shadow">
-      <h2 className="text-center mb-4  text-dark text-center p-2">Create Company</h2>
-      <hr />
+        <h2 className="text-center mb-4  text-dark text-center p-2">
+          Create Company
+        </h2>
+        <hr />
         <form
           onSubmit={handleSubmit}
           className=" d-flex justify-content-center flex-column"
@@ -185,12 +187,8 @@ const CreateCompanyForm = () => {
               </div>
             </div>
           </div>
-          <button
-            type="submit"
-            className="btn btn-dark mt-3 "
-            
-          >
-            Create 
+          <button type="submit" className="btn btn-dark mt-3 ">
+            Create
           </button>
         </form>
       </div>
