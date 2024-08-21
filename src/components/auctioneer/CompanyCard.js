@@ -27,6 +27,7 @@ const CompanyCard = () => {
         setCompanies(response.data.companies);
       } catch (error) {
         console.error("Error fetching companies:", error);
+    
         // Handle error state or redirect to login if unauthorized
       }
     };
@@ -100,7 +101,7 @@ const CompanyCard = () => {
       toast.success(response.data.message); // Show success message
     } catch (error) {
       console.error("Error selling company:", error);
-      toast.error(error); // Show error message
+      toast.error(error.response.data); // Show error message
     }
   };
 
