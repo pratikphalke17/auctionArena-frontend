@@ -100,7 +100,7 @@ const CompanyCard = () => {
       toast.success(response.data.message); // Show success message
     } catch (error) {
       console.error("Error selling company:", error);
-      toast.error("Failed to sell the company"); // Show error message
+      toast.error(error); // Show error message
     }
   };
 
