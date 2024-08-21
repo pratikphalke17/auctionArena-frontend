@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CreateCompanyForm = () => {
   const [formData, setFormData] = useState({
@@ -30,7 +32,8 @@ const CreateCompanyForm = () => {
         setDomains(response.data);
         console.log(response.data);
       } catch (error) {
-        console.error("Error fetching domains:", error);
+        console.log(error.response.data)
+      toast.error(error.response.data.message);
       }
     };
 
@@ -73,7 +76,8 @@ const CreateCompanyForm = () => {
         marketCapital: "",
       });
     } catch (error) {
-      console.error("Error creating company:", error);
+      console.log(error.response.data)
+      toast.error(error.response.data.message);
     }
     setShowModal(false);
   };

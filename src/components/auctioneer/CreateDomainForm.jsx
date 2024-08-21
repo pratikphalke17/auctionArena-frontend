@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CreateDomainForm = () => {
   const [formData, setFormData] = useState({
@@ -38,7 +40,8 @@ const CreateDomainForm = () => {
         name: "",
       });
     } catch (error) {
-      console.error("Error creating company:", error);
+      console.log(error.response.data)
+      toast.error(error.response.data.message);
     }
     setShowModal(false);
   };

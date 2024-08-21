@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Companies = () => {
   const [companies, setCompanies] = useState([]);
@@ -21,8 +23,8 @@ const Companies = () => {
         );
         setCompanies(response.data.companies);
       } catch (error) {
-        console.error("Error fetching companies:", error);
-        // Handle error state or redirect to login if unauthorized
+        console.log(error.response.data)
+      toast.error(error.response.data.message);
       } finally {
         setLoading(false);
       }

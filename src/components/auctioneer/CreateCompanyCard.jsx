@@ -76,7 +76,8 @@ const CreateCompanyForm = () => {
         marketCapital: "",
       });
     } catch (error) {
-      console.error("Error creating company:", error);
+      console.log(error.response.data)
+      toast.error(error.response.data.message);
     }
     setShowModal(false);
   };
