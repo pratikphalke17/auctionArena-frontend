@@ -26,7 +26,8 @@ const CompanyCard = () => {
         );
         setCompanies(response.data.companies);
       } catch (error) {
-        console.error("Error fetching companies:", error);
+        console.log(error.response.data)
+      toast.error(error.response.data.message);
     
         // Handle error state or redirect to login if unauthorized
       }
@@ -47,8 +48,8 @@ const CompanyCard = () => {
         ); // Adjust endpoint URL as per your backend
         setTeams(response.data.teams);
       } catch (error) {
-        console.error("Error fetching teams:", error);
-        // Handle error state or redirect to login if unauthorized
+        console.log(error.response.data)
+      toast.error(error.response.data.message);
       }
     };
 

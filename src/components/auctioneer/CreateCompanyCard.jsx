@@ -30,7 +30,8 @@ const CreateCompanyForm = () => {
         setDomains(response.data);
         console.log(response.data);
       } catch (error) {
-        console.error("Error fetching domains:", error);
+        console.log(error.response.data)
+      toast.error(error.response.data.message);
       }
     };
 
