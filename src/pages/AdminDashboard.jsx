@@ -66,14 +66,14 @@ function AdminDashboard() {
                     <i className="bi bi-plus-circle me-2"></i> Create Company
                   </Link>
                 </li>
-                <li className="nav-item mb-2">
+                {/* <li className="nav-item mb-2">
                   <Link
                     to="/updateCompany"
                     className="nav-link text-dark text-center bg-light rounded p-2"
                   >
                     <i className="bi bi-pencil-square me-2"></i> Update Company
                   </Link>
-                </li>
+                </li> */}
                 <li className="nav-item mb-2">
                   <Link
                     to="/createDomain"
