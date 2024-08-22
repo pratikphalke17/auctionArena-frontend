@@ -30,7 +30,7 @@ const CreateDomainForm = () => {
         },
       };
       const response = await axios.post(
-        "https://auctionarena.onrender.com/domain/createDomain",
+        "http://localhost:3000/domain/createDomain",
         formData,
         config
       );
@@ -40,7 +40,7 @@ const CreateDomainForm = () => {
         name: "",
       });
     } catch (error) {
-      console.log(error.response.data)
+      console.log(error.response.data);
       toast.error(error.response.data.message);
     }
     setShowModal(false);

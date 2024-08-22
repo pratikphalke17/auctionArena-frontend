@@ -21,14 +21,14 @@ const CompanyCard = () => {
         };
 
         const response = await axios.get(
-          "https://auctionarena.onrender.com/company/getAllCompanies",
+          "http://localhost:3000/company/getAllCompanies",
           config
         );
         setCompanies(response.data.companies);
       } catch (error) {
-        console.log(error.response.data)
-      toast.error(error.response.data.message);
-    
+        console.log(error.response.data);
+        toast.error(error.response.data.message);
+
         // Handle error state or redirect to login if unauthorized
       }
     };
@@ -43,13 +43,13 @@ const CompanyCard = () => {
         };
 
         const response = await axios.get(
-          "https://auctionarena.onrender.com/teams/team/getAllTeamsData",
+          "http://localhost:3000/teams/team/getAllTeamsData",
           config
         ); // Adjust endpoint URL as per your backend
         setTeams(response.data.teams);
       } catch (error) {
-        console.log(error.response.data)
-      toast.error(error.response.data.message);
+        console.log(error.response.data);
+        toast.error(error.response.data.message);
       }
     };
 
@@ -86,7 +86,7 @@ const CompanyCard = () => {
 
       const currentCompany = companies[currentIndex];
       const response = await axios.put(
-        "https://auctionarena.onrender.com/company/sellCompany",
+        "http://localhost:3000/company/sellCompany",
         { companyId: currentCompany._id, teamId: selectedTeam, soldAt },
         config
       );
@@ -102,7 +102,7 @@ const CompanyCard = () => {
       toast.success(response.data.message); // Show success message
     } catch (error) {
       // console.error("Error selling company:", error);
-      console.log(error.response.data)
+      console.log(error.response.data);
       toast.error(error.response.data.message); // Show error message
     }
   };

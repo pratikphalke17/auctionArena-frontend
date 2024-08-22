@@ -26,7 +26,7 @@ const AllTeams = () => {
 
         // Fetch user team data
         const userTeamResponse = await axios.get(
-          `https://auctionarena.onrender.com/teams/team/getTeamData/${userId}`,
+          `http://localhost:3000/teams/team/getTeamData/${userId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -37,7 +37,7 @@ const AllTeams = () => {
 
         // Fetch all teams data
         const allTeamsResponse = await axios.get(
-          "https://auctionarena.onrender.com/teams/team/getAllTeamsData",
+          "http://localhost:3000/teams/team/getAllTeamsData",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -47,7 +47,7 @@ const AllTeams = () => {
 
         setLoading(false);
       } catch (error) {
-        console.log(error.response.data)
+        console.log(error.response.data);
         toast.error(error.response.data.message);
         setLoading(false);
       }

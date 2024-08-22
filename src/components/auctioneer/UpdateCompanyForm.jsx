@@ -26,14 +26,14 @@ const CreateCompanyForm = () => {
           },
         };
         const response = await axios.get(
-          "https://auctionarena.onrender.com/domain/getAllDomains",
+          "http://localhost:3000/domain/getAllDomains",
           config
         );
         setDomains(response.data);
         console.log(response.data);
       } catch (error) {
-        console.log(error.response.data)
-      toast.error(error.response.data.message);
+        console.log(error.response.data);
+        toast.error(error.response.data.message);
       }
     };
 
@@ -61,7 +61,7 @@ const CreateCompanyForm = () => {
         },
       };
       const response = await axios.post(
-        "https://auctionarena.onrender.com/company/createCompany",
+        "http://localhost:3000/company/createCompany",
         formData,
         config
       );
@@ -76,7 +76,7 @@ const CreateCompanyForm = () => {
         marketCapital: "",
       });
     } catch (error) {
-      console.log(error.response.data)
+      console.log(error.response.data);
       toast.error(error.response.data.message);
     }
     setShowModal(false);

@@ -18,13 +18,13 @@ const Companies = () => {
         };
 
         const response = await axios.get(
-          "https://auctionarena.onrender.com/company/getAllCompanies",
+          "http://localhost:3000/company/getAllCompanies",
           config
         );
         setCompanies(response.data.companies);
       } catch (error) {
-        console.log(error.response.data)
-      toast.error(error.response.data.message);
+        console.log(error.response.data);
+        toast.error(error.response.data.message);
       } finally {
         setLoading(false);
       }
