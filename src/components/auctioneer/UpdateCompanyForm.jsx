@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CreateCompanyForm = () => {
   const [formData, setFormData] = useState({
@@ -30,7 +32,8 @@ const CreateCompanyForm = () => {
         setDomains(response.data);
         console.log(response.data);
       } catch (error) {
-        console.error("Error fetching domains:", error);
+        console.log(error.response.data);
+        toast.error(error.response.data.message);
       }
     };
 
@@ -73,7 +76,8 @@ const CreateCompanyForm = () => {
         marketCapital: "",
       });
     } catch (error) {
-      console.error("Error creating company:", error);
+      console.log(error.response.data);
+      toast.error(error.response.data.message);
     }
     setShowModal(false);
   };
@@ -81,8 +85,10 @@ const CreateCompanyForm = () => {
   return (
     <div className="container mt-5 d-flex justify-content-center ">
       <div className="col-md-8 p-4 border border-3 rounded shadow">
-      <h2 className="text-center mb-4  text-dark text-center p-2">Update Company</h2>
-      <hr />
+        <h2 className="text-center mb-4  text-dark text-center p-2">
+          Update Company
+        </h2>
+        <hr />
         <form
           onSubmit={handleSubmit}
           className=" d-flex justify-content-center flex-column"
@@ -185,11 +191,7 @@ const CreateCompanyForm = () => {
               </div>
             </div>
           </div>
-          <button
-            type="submit"
-            className="btn btn-dark mt-3 "
-            
-          >
+          <button type="submit" className="btn btn-dark mt-3 ">
             Update
           </button>
         </form>
