@@ -28,15 +28,15 @@ const AllTeams = () => {
         const userTeamResponse = await axios.get(`http://localhost:3000/teams/team/getTeamData/${userId}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
-        
+
         setUserTeam(userTeamResponse.data.team);
         console.log(userTeamResponse.data.team);
-        
+
         // Fetch all teams data
         const allTeamsResponse = await axios.get('http://localhost:3000/teams/team/getAllTeamsData', {
           headers: { Authorization: `Bearer ${token}` }
         });
-        
+
         setOtherTeams(allTeamsResponse.data.teams);
         
         setLoading(false);

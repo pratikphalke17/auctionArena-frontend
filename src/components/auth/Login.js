@@ -18,7 +18,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
         name: teamName,
         password,
         role: accountType, // Ensure backend expects 'role' instead of 'accountType'
-      });
+      });                                                            
       localStorage.setItem('token', response.data.token); // Store token in localStorage
       setIsLoggedIn(true); // Update parent component state
       setUserRole(accountType); // Set the user role

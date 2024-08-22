@@ -57,6 +57,7 @@ function App() {
         <Route path="/prizes" element={<PrizesPage />} />
         <Route path="/rules" element={<RulesPage />} />
 
+      {/* basic conditional rendering */}
         {!isLoggedIn && (
           <>
             <Route
@@ -72,10 +73,13 @@ function App() {
             <Route path="/signup" element={<Signup />} />
           </>
         )}
-        
+      
         {isLoggedIn && (
           <>
+          {/* companies visible to user and admin both but only after login */}
             <Route path="/companies" element={<Companies />} />
+
+          {/* adminDashboard visible to admin only */}            
             {userRole === "admin" && (
               <Route path="/admin" element={<AdminDashboard />} />
             )}
