@@ -13,7 +13,7 @@ const ContactSection = () => {
                 <div className="col-md-4 mb-4 p-2">
                     <div className="card contact-card mt-2">
                         <img
-                            src="https://tmssl.akamaized.net/images/foto/galerie/neymar-brazil-2022-1668947300-97010.jpg?lm=1668947335"
+                            src="https://media.licdn.com/dms/image/v2/D4D03AQFNZHTBnY17oA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1695757765221?e=1729728000&v=beta&t=fV6R6uB_yQXquy-Zbh9TALBk-E4205vRE_xSB1G4F9M"
                             alt="Pranav Bhiungade"
                             className="profile-img"
                         />
@@ -27,7 +27,7 @@ const ContactSection = () => {
                 <div className="col-md-4 mb-4 p-2">
                     <div className="card contact-card mt-2">
                         <img
-                            src="https://tmssl.akamaized.net/images/foto/galerie/neymar-brazil-2022-1668947300-97010.jpg?lm=1668947335"
+                            src="https://media.licdn.com/dms/image/v2/D4D03AQGv2dahtghHpg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684261665874?e=1729728000&v=beta&t=_RZiyeDC5RWtsCfMtxeK4x8Ag3JpSrJoAyndAXGeY1k"
                             alt="Prem Deshmukh"
                             className="profile-img"
                         />
@@ -41,13 +41,13 @@ const ContactSection = () => {
                 <div className="col-md-4 mb-4 p-2">
                     <div className="card contact-card mt-2">
                         <img
-                            src="https://tmssl.akamaized.net/images/foto/galerie/neymar-brazil-2022-1668947300-97010.jpg?lm=1668947335"
-                            alt="Vishal Bhokre"
+                            src="https://media.licdn.com/dms/image/v2/D4D03AQGhGbOI4D8aug/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1716141409559?e=1729728000&v=beta&t=LoKSrCI940paYw9wMD-7bltYSgUDrXIMC1zh8xhoLs0"
+                            alt="Pratik Phalke"
                             className="profile-img"
                         />
-                        <div className="card-header">Vishal Bhokre</div>
+                        <div className="card-header">Pratik Phalke</div>
                         <div className="card-body">
-                            <p className="card-text">Phone: +91 99220 45868</p>
+                            <p className="card-text">Phone: +91 90677 97253</p>
                         </div>
                     </div>
                 </div>
