@@ -1,100 +1,88 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// LoginPage.js
+import React from "react";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
-const Login = ({ setIsLoggedIn, setUserRole }) => {
-  const [teamName, setTeamName] = useState("");
-  const [password, setPassword] = useState("");
-  const [accountType, setAccountType] = useState("team"); // Default to team
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post(
-        "https://auctionarena.onrender.com/teams/team/login",
-        {
-          name: teamName,
-          password,
-          role: accountType, // Ensure backend expects 'role' instead of 'accountType'
-        }
-      );
-      localStorage.setItem("token", response.data.token); // Store token in localStorage
-      setIsLoggedIn(true); // Update parent component state
-      setUserRole(accountType); // Set the user role
-      toast.success("Logged in successfully"); // Show success toast message
-      console.log("Toast should be shown now"); // Debugging line
-      navigate("/", { replace: true });
-    } catch (error) {
-      setError("Invalid login credentials");
-    }
-  };
-
+const LoginPage = () => {
   return (
-    <div className="d-flex justify-content-center align-items-center min-vh-100 bg-light">
-      <form
-        onSubmit={handleSubmit}
-        className="p-5 bg-white rounded shadow login-card"
-        style={{ maxWidth: "400px", width: "100%" }}
+    <div className="container-fluid vh-100 d-flex justify-content-center align-items-center bg-light">
+      <div
+        className="row shadow-lg bg-white rounded"
+        style={{ maxWidth: "900px" }}
       >
-        <h2 className="text-center mb-4 text-dark">Login</h2>
-        <div className="mb-3">
-          <label className="form-label text-dark">
-            Team Name / Auctioneer Name
-          </label>
-          <input
-            type="text"
-            className="form-control bg-light text-dark border-dark"
-            value={teamName}
-            onChange={(e) => setTeamName(e.target.value)}
-            required
-          />
+        <div className="col-lg-6 d-none d-lg-block bg-primary p-4">
+          <div className="d-flex justify-content-center align-items-center h-100">
+            <img
+              src="https://via.placeholder.com/300" // Replace this with your illustration image URL
+              alt="Illustration"
+              className="img-fluid"
+            />
+          </div>
         </div>
-        <div className="mb-3">
-          <label className="form-label text-dark">Password</label>
-          <input
-            type="password"
-            className="form-control bg-light text-dark border-dark"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+        <div className="col-lg-6 col-md-12 p-4">
+          <h2 className="text-center mb-4">Welcome Back :)</h2>
+          <p className="text-center mb-4">
+            To keep connected with us, please log in with your personal info.
+          </p>
+          <form>
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label">
+                Email Address
+              </label>
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                placeholder="name@example.com"
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="password" className="form-label">
+                Password
+              </label>
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                placeholder="Password"
+              />
+            </div>
+            <div className="form-check mb-3">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="rememberMe"
+              />
+              <label className="form-check-label" htmlFor="rememberMe">
+                Remember Me
+              </label>
+            </div>
+            <div className="d-grid gap-2">
+              <button type="submit" className="btn btn-primary">
+                Login Now
+              </button>
+              <button type="button" className="btn btn-secondary">
+                Create Account
+              </button>
+            </div>
+          </form>
+          <div className="text-center mt-4">
+            <p>Or you can join with</p>
+            <div className="d-flex justify-content-center">
+              <button className="btn btn-outline-secondary me-2">
+                <i className="fab fa-google"></i> Google
+              </button>
+              <button className="btn btn-outline-secondary me-2">
+                <i className="fab fa-facebook"></i> Facebook
+              </button>
+              <button className="btn btn-outline-secondary">
+                <i className="fab fa-twitter"></i> Twitter
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="mb-3">
-          <label className="form-label text-dark">Account Type</label>
-          <select
-            className="form-select bg-light text-dark border-dark"
-            value={accountType}
-            onChange={(e) => setAccountType(e.target.value)}
-          >
-            <option value="team">Team</option>
-            <option value="admin">Auctioneer</option>
-          </select>
-        </div>
-        {error && <p className="text-danger">{error}</p>}
-        <button type="submit" className="btn btn-dark w-100 login-button">
-          Login
-        </button>
-        <p className="text-center mt-3 text-dark">
-          Not registered? Click on the signup button below.
-        </p>
-        <button
-          type="button"
-          className="btn btn-secondary w-100"
-          onClick={() => navigate("/signup", { replace: true })}
-        >
-          Signup
-        </button>
-      </form>
-      <ToastContainer
-        position="top-center"
-        style={{ marginTop: "80px" }} // Adjust the margin as needed
-      />
+      </div>
     </div>
   );
 };
 
-export default Login;
+export default LoginPage;
